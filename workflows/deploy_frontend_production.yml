@@ -1,0 +1,19 @@
+name: deploy_frontend_production
+on:
+  push:
+    paths:
+      ["code/ollieweb/**", ".github/workflows/deploy_frontend_production.yml"]
+    branches:
+#      - develop
+      - gha-production
+    tags:
+      - "20[2-9][0-9].[0-1][0-9].[0-3][0-9]-[0-9]?-FE"
+
+concurrency: deploy_frontend_production
+
+jobs:
+  build_ollieweb:
+    uses: ./.github/workflows/build_publish.yml
+    with:
+      APPLICATION: ollieweb
+
