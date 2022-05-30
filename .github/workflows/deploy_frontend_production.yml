@@ -1,8 +1,8 @@
 name: deploy_frontend_production
 on:
   push:
-    paths:
-      ["code/ollieweb/**", ".github/workflows/deploy_frontend_production.yml"]
+#    paths:
+#      ["code/ollieweb/**", ".github/workflows/deploy_frontend_production.yml"]
     branches:
 #      - develop
       - ghaproduction
