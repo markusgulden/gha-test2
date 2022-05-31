@@ -48,9 +48,10 @@ jobs:
       AWS_REGION: ${{ secrets.AWS_REGION }}
 
   deploy_ollieweb:
-    needs: [build_ollieweb, set_env]
+    needs: [migrate, set_env]
     if: |
       always() && 
+      (needs.set_env.result == 'success') && 
       (needs.migrate.result == 'success')
     uses: ./.github/workflows/deploy_ecs.yml
     with:
