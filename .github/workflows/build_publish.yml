@@ -13,18 +13,10 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 0
       - name: Get commit SHA
         uses: benjlevesque/short-sha@v1.2
         with:
           length: 8
-
-#      - name: Extract metadata for the Docker image
-#        id: meta
-#        uses: docker/metadata-action@v4
-#        with:
-#          images: test
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
         with:

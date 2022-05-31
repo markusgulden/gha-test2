@@ -1,0 +1,28 @@
+name: Deploy to ECS
+
+on:
+  workflow_call:
+    inputs:
+      APPLICATION:
+        required: true
+        type: string
+      ENVIRONMENT:
+        required: true
+        type: string
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      AWS_REGION:
+        required: true
+
+jobs:
+  deploy_ecs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get commit SHA
+        uses: benjlevesque/short-sha@v1.2
+        with:
+          length: 8
+      - run: echo "SHA is {{env.SHA}}"
