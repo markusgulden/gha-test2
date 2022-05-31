@@ -9,7 +9,7 @@ on:
     tags:
       - "20[2-9][0-9].[0-1][0-9].[0-3][0-9]-[0-9]?-FE"
 
-concurrency: deploy_frontend_production
+concurrency: deploy_frontend_production-${{ github.ref }}
 
 jobs:
   set_env:
